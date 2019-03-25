@@ -1,0 +1,42 @@
+{
+  "name": "gendiff",
+  "version": "1.0.0",
+  "description": "a console study project generating difference between config files",
+  "main": "",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mpokrovsky/project-lvl2-s451.git"
+  },
+  "keywords": [
+    "hexlet",
+    "project2",
+    "cli"
+  ],
+  "bin": {
+    "gendiff": "dist/bin/gendiff.js"
+  },
+  "author": "mpokrovsky",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mpokrovsky/project-lvl2-s451/issues"
+  },
+  "homepage": "https://github.com/mpokrovsky/project-lvl2-s451#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.4.0",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.4.2",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.15.3",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0"
+  }
+}
