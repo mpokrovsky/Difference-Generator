@@ -65,5 +65,13 @@ export default (filePathBefore, filePathAfter) => {
 
   const contentAfter = readFileSync(filePathAfter, 'utf8');
   const objAfter = process(contentAfter);
-  return [objBefore, objAfter];
+
+  const allKeys = uniq([...Object.keys(objBefore), ...Object.keys(objAfter)]);
+
+  const difference = allKeys.reduce((acc, key) => {
+    const { result } = getResultFormat(key, objBefore, objAfter);
+    return acc + result(key, objBefore, objAfter);
+  }, '');
+
+  console.log(difference);
 };
