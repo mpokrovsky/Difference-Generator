@@ -1,6 +1,6 @@
 import { has, uniq } from 'lodash';
+import { readFileSync } from 'fs';
 
-const fs = require('fs');
 
 const fileExtension = [
   {
@@ -36,14 +36,14 @@ const resFormat = [
 ];
 
 const getResultFormat = (arg, obj1, obj2) => resFormat.find(({ check }) => check(arg, obj1, obj2));
-
+/*
 export default (filePathBefore, filePathAfter) => {
   const { process } = getFileExtension(filePathBefore);
 
-  const contentBefore = fs.readFileSync(filePathBefore, 'utf8');
+  const contentBefore = readFileSync(filePathBefore, 'utf8');
   const objBefore = process(contentBefore);
 
-  const contentAfter = fs.readFileSync(filePathAfter, 'utf8');
+  const contentAfter = readFileSync(filePathAfter, 'utf8');
   const objAfter = process(contentAfter);
 
   const allKeys = uniq([...Object.keys(objBefore), ...Object.keys(objAfter)]);
@@ -54,4 +54,9 @@ export default (filePathBefore, filePathAfter) => {
   }, '');
 
   return `{\n${difference}}`;
+};
+*/
+
+export default (filePathBefore, filePathAfter) => {
+  console.log('hi!!!!');
 };
