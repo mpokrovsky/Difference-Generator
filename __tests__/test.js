@@ -1,12 +1,19 @@
 import fs from 'fs';
-import getDiff from '.';
+import gendiff from '../src';
 
-// const path = require('path');
+const path = require('path');
 
+const getPath = fileName => path.join('__tests__', '__fixtures__', fileName);
 
-// const getPath = fileName => path.join('__tests__', '__fixtures__', fileName);
-// const expected = fs.readFileSync(getPath(expectedValue), 'utf8');
+const fileNameBefore = 'before.json';
+const beforePath = getPath(fileNameBefore);
+
+const fileNameAfter = 'after.json';
+const afterPath = getPath(fileNameAfter);
+
+const fileExpected = 'expected.txt';
+const expected = fs.readFileSync(getPath(fileExpected), 'utf8');
 
 test('test json configs', () => {
-  expect('after.json').toBe('after.json');
+  expect(gendiff(beforePath, afterPath)).toBe(expected);
 });
