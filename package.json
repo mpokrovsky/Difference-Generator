@@ -1,6 +1,6 @@
 {
   "name": "gendiff-mpokrovsky",
-  "version": "2.1.5",
+  "version": "2.1.6",
   "description": "a console study project generating difference between config files",
   "main": "",
   "files": [
