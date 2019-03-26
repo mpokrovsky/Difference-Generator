@@ -16,22 +16,22 @@ const resFormat = [
   {
     name: 'save value',
     check: (key, obj1, obj2) => has(obj1, key) && has(obj2, key) && obj1[key] === obj2[key],
-    result: (key, obj2) => `   ${key} : ${obj2[key]}\n`,
+    result: (key, obj2) => `    ${key}: ${obj2[key]}\n`,
   },
   {
     name: 'change value',
     check: (key, obj1, obj2) => has(obj1, key) && has(obj2, key) && obj1[key] !== obj2[key],
-    result: (key, obj1, obj2) => ` + ${key} : ${obj2[key]}\n - ${key} : ${obj1[key]}\n`,
+    result: (key, obj1, obj2) => `  + ${key}: ${obj2[key]}\n  - ${key}: ${obj1[key]}\n`,
   },
   {
     name: 'add value',
     check: (key, obj1, obj2) => !has(obj1, key) && has(obj2, key),
-    result: (key, obj1, obj2) => ` + ${key} : ${obj2[key]}\n`,
+    result: (key, obj1, obj2) => `  + ${key}: ${obj2[key]}\n`,
   },
   {
     name: 'remove value',
     check: (key, obj1, obj2) => has(obj1, key) && !has(obj2, key),
-    result: (key, obj1) => ` - ${key} : ${obj1[key]}\n`,
+    result: (key, obj1) => `  - ${key}: ${obj1[key]}\n`,
   },
 ];
 
