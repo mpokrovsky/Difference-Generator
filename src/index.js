@@ -58,5 +58,12 @@ export default (filePathBefore, filePathAfter) => {
 */
 
 export default (filePathBefore, filePathAfter) => {
-  console.log('hi!!!!');
+  const { process } = getFileExtension(filePathBefore);
+
+  const contentBefore = readFileSync(filePathBefore, 'utf8');
+  const objBefore = process(contentBefore);
+
+  const contentAfter = readFileSync(filePathAfter, 'utf8');
+  const objAfter = process(contentAfter);
+  return [objBefore, objAfter];
 };
