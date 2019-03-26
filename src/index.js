@@ -73,5 +73,5 @@ export default (filePathBefore, filePathAfter) => {
     return acc + result(key, objBefore, objAfter);
   }, '');
 
-  console.log(difference);
+  return `{\n${difference}}`;
 };
