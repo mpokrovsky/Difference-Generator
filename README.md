@@ -7,4 +7,8 @@ a console study project generating difference between config files
 
 `npm -g install gendiff-mpokrovsky`
 
+Installation process & help calling:
 [![asciicast](https://asciinema.org/a/236334.png)](https://asciinema.org/a/236334)
+
+Demonstrating json configs comparison:
+[![asciicast](https://asciinema.org/a/236755.png)](https://asciinema.org/a/236755)
