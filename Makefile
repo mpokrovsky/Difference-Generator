@@ -9,3 +9,7 @@ publish:
 
 make lint:
 	npx eslint .
+
+make test:
+	npm run test
+	
