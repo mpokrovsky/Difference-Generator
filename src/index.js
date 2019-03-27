@@ -39,8 +39,7 @@ export default (filePathBefore, filePathAfter) => {
 
   const difference = allKeys.reduce((acc, key) => {
     const { result } = getItemChangeStr(key, objBefore, objAfter);
-    acc.push(result(key, objBefore, objAfter));
-    return acc;
+    return [...acc, result(key, objBefore, objAfter)];
   }, []);
 
   return `{\n${difference.join('\n')}\n}`;
