@@ -27,11 +27,13 @@ const resFormat = [
 
 const getResultFormat = (arg, obj1, obj2) => resFormat.find(({ check }) => check(arg, obj1, obj2));
 
+const getContent = filePath => readFileSync(filePath, 'utf8');
+
 export default (filePathBefore, filePathAfter) => {
   const { process } = getFileExtension(filePathBefore);
 
-  const objBefore = process(readFileSync(filePathBefore, 'utf8'));
-  const objAfter = process(readFileSync(filePathAfter, 'utf8'));
+  const objBefore = process(getContent(filePathBefore));
+  const objAfter = process(getContent(filePathAfter));
 
   const allKeys = uniq([...Object.keys(objBefore), ...Object.keys(objAfter)]);
 
