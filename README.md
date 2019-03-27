@@ -10,5 +10,8 @@ a console study project generating difference between config files
 Installation process & help calling:
 [![asciicast](https://asciinema.org/a/236334.png)](https://asciinema.org/a/236334)
 
-Demonstrating json configs comparison:
+Json configs comparison:
 [![asciicast](https://asciinema.org/a/236755.png)](https://asciinema.org/a/236755)
+
+Yaml configs comparison:
+[![asciicast](https://asciinema.org/a/237041.png)](https://asciinema.org/a/237041)
