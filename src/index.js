@@ -26,7 +26,7 @@ const itemChangeStr = [
 ];
 
 const getItemChangeStr = (arg, objBefore, objAfter) => {
-  itemChangeStr.find(({ check }) => check(arg, objBefore, objAfter));
+  return itemChangeStr.find(({ check }) => check(arg, objBefore, objAfter));
 };
 
 const getContent = filePath => readFileSync(filePath, 'utf8');
