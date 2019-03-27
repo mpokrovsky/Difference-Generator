@@ -3,12 +3,12 @@ import path from 'path';
 
 const parsers = [
   {
-    name: 'json',
+    extension: 'json',
     check: arg => path.extname(arg) === '.json',
     parser: file => JSON.parse(file),
   },
   {
-    name: 'yaml',
+    extension: 'yaml',
     check: arg => path.extname(arg) === '.yml',
     parser: arg => yaml.safeLoad(arg),
   },
