@@ -1,7 +1,7 @@
 import yaml from 'js-yaml';
 import path from 'path';
 
-const fileExtension = [
+const parsers = [
   {
     name: 'json',
     check: arg => path.extname(arg) === '.json',
@@ -14,4 +14,4 @@ const fileExtension = [
   },
 ];
 
-export default arg => fileExtension.find(({ check }) => check(arg));
+export default arg => parsers.find(({ check }) => check(arg));
