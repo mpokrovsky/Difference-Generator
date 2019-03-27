@@ -2,30 +2,32 @@ import { has, uniq } from 'lodash';
 import { readFileSync } from 'fs';
 import getFileExtension from './parser';
 
-const resFormat = [
+const itemChangeStr = [
   {
-    name: 'save value',
+    state: 'value saved',
     check: (key, obj1, obj2) => has(obj1, key) && has(obj2, key) && obj1[key] === obj2[key],
-    result: (key, obj2) => `    ${key}: ${obj2[key]}\n`,
+    result: (key, obj2) => `    ${key}: ${obj2[key]}`,
   },
   {
-    name: 'change value',
+    state: 'value changed',
     check: (key, obj1, obj2) => has(obj1, key) && has(obj2, key) && obj1[key] !== obj2[key],
-    result: (key, obj1, obj2) => `  + ${key}: ${obj2[key]}\n  - ${key}: ${obj1[key]}\n`,
+    result: (key, obj1, obj2) => `  + ${key}: ${obj2[key]}\n  - ${key}: ${obj1[key]}`,
   },
   {
-    name: 'add value',
+    state: 'value added',
     check: (key, obj1, obj2) => !has(obj1, key) && has(obj2, key),
-    result: (key, obj1, obj2) => `  + ${key}: ${obj2[key]}\n`,
+    result: (key, obj1, obj2) => `  + ${key}: ${obj2[key]}`,
   },
   {
-    name: 'remove value',
+    state: 'value removed',
     check: (key, obj1, obj2) => has(obj1, key) && !has(obj2, key),
-    result: (key, obj1) => `  - ${key}: ${obj1[key]}\n`,
+    result: (key, obj1) => `  - ${key}: ${obj1[key]}`,
   },
 ];
 
-const getResultFormat = (arg, obj1, obj2) => resFormat.find(({ check }) => check(arg, obj1, obj2));
+const getItemChangeStr = (arg, objBefore, objAfter) => {
+  itemChangeStr.find(({ check }) => check(arg, objBefore, objAfter));
+};
 
 const getContent = filePath => readFileSync(filePath, 'utf8');
 
@@ -38,9 +40,10 @@ export default (filePathBefore, filePathAfter) => {
   const allKeys = uniq([...Object.keys(objBefore), ...Object.keys(objAfter)]);
 
   const difference = allKeys.reduce((acc, key) => {
-    const { result } = getResultFormat(key, objBefore, objAfter);
-    return acc + result(key, objBefore, objAfter);
-  }, '');
+    const { result } = getItemChangeStr(key, objBefore, objAfter);
+    acc.push(result(key, objBefore, objAfter));
+    return acc;
+  }, []);
 
-  return `{\n${difference}}`;
+  return `{\n${difference.join('\n')}\n}`;
 };
