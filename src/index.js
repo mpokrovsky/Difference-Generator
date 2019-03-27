@@ -25,7 +25,8 @@ const itemChangeStr = [
   },
 ];
 
-const getItemChangeStr = (k, obj1, obj2) => itemChangeStr.find(({ check }) => check(k, obj1, obj2));
+const getItemChangeStr = (key, obj1, obj2) => itemChangeStr
+  .find(({ check }) => check(key, obj1, obj2));
 
 const getContent = filePath => readFileSync(filePath, 'utf8');
 
