@@ -5,12 +5,12 @@ const fileExtension = [
   {
     name: 'json',
     check: arg => path.extname(arg) === '.json',
-    process: file => JSON.parse(file),
+    parser: file => JSON.parse(file),
   },
   {
     name: 'yaml',
     check: arg => path.extname(arg) === '.yml',
-    process: arg => yaml.safeLoad(arg),
+    parser: arg => yaml.safeLoad(arg),
   },
 ];
 

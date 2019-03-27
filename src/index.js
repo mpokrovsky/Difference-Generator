@@ -1,6 +1,6 @@
 import { has, uniq } from 'lodash';
 import { readFileSync } from 'fs';
-import getFileExtension from './parser';
+import getParser from './parsers';
 
 const itemChangeStr = [
   {
@@ -30,10 +30,10 @@ const getItemChangeStr = (k, obj1, obj2) => itemChangeStr.find(({ check }) => ch
 const getContent = filePath => readFileSync(filePath, 'utf8');
 
 export default (filePathBefore, filePathAfter) => {
-  const { process } = getFileExtension(filePathBefore);
+  const { parser } = getParser(filePathBefore);
 
-  const objBefore = process(getContent(filePathBefore));
-  const objAfter = process(getContent(filePathAfter));
+  const objBefore = parser(getContent(filePathBefore));
+  const objAfter = parser(getContent(filePathAfter));
 
   const allKeys = uniq([...Object.keys(objBefore), ...Object.keys(objAfter)]);
 
