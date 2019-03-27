@@ -1,16 +1,6 @@
 import { has, uniq } from 'lodash';
 import { readFileSync } from 'fs';
-
-
-const fileExtension = [
-  {
-    name: 'json',
-    check: arg => arg.split('.').pop() === 'json',
-    process: file => JSON.parse(file),
-  },
-];
-
-const getFileExtension = arg => fileExtension.find(({ check }) => check(arg));
+import getFileExtension from './parser';
 
 const resFormat = [
   {
@@ -40,11 +30,8 @@ const getResultFormat = (arg, obj1, obj2) => resFormat.find(({ check }) => check
 export default (filePathBefore, filePathAfter) => {
   const { process } = getFileExtension(filePathBefore);
 
-  const contentBefore = readFileSync(filePathBefore, 'utf8');
-  const objBefore = process(contentBefore);
-
-  const contentAfter = readFileSync(filePathAfter, 'utf8');
-  const objAfter = process(contentAfter);
+  const objBefore = process(readFileSync(filePathBefore, 'utf8'));
+  const objAfter = process(readFileSync(filePathAfter, 'utf8'));
 
   const allKeys = uniq([...Object.keys(objBefore), ...Object.keys(objAfter)]);
 

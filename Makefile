@@ -7,8 +7,11 @@ start:
 publish:
 	npm publish
 
-make lint:
+lint:
 	npx eslint .
 
-make test:
+test:
 	npm test
+
+test-coverage:
+  npm test -- --coverage
