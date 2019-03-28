@@ -7,6 +7,7 @@ const getPath = fileName => path.join('__tests__', '__fixtures__', fileName);
 test.each([
   ['before.json', 'after.json', 'expected.txt'],
   ['before.yml', 'after.yml', 'expected.txt'],
+  ['before.ini', 'after.ini', 'expected.txt'],
 ])('add(%s, %s)',
   (a, b, c) => {
     const beforePath = getPath(a);
