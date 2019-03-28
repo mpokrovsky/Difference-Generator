@@ -1,4 +1,4 @@
-import { has, uniq, union } from 'lodash';
+import { has, union } from 'lodash';
 import { readFileSync } from 'fs';
 import getParser from './parsers';
 
@@ -27,7 +27,7 @@ const getItemChangeStr = (key, obj1, obj2) => itemChangeStr
 const getContent = filePath => readFileSync(filePath, 'utf8');
 
 export default (filePathBefore, filePathAfter) => {
-  const { parse } = getParser(filePathBefore);
+  const parse = getParser(filePathBefore);
 
   const objBefore = parse(getContent(filePathBefore));
   const objAfter = parse(getContent(filePathAfter));
