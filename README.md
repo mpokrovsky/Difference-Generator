@@ -15,3 +15,6 @@ Json configs comparison:
 
 Yaml configs comparison:
 [![asciicast](https://asciinema.org/a/237041.png)](https://asciinema.org/a/237041)
+
+Ini configs comparison:
+[![asciicast](https://asciinema.org/a/237291.png)](https://asciinema.org/a/237291)
