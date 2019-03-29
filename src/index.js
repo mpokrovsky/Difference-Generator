@@ -1,6 +1,7 @@
 import { has, union } from 'lodash';
 import { readFileSync } from 'fs';
-import getParser from './parsers';
+import path from 'path';
+import parse from './parsers';
 
 const itemChangeStr = [
   {
@@ -21,16 +22,16 @@ const itemChangeStr = [
   },
 ];
 
-const getItemChangeStr = (key, obj1, obj2) => itemChangeStr
-  .find(({ check }) => check(key, obj1, obj2));
+const getItemChangeStr = (key, objBefore, objAfter) => itemChangeStr
+  .find(({ check }) => check(key, objBefore, objAfter));
 
 const getContent = filePath => readFileSync(filePath, 'utf8');
 
-export default (filePathBefore, filePathAfter) => {
-  const parse = getParser(filePathBefore);
+const getExtension = filepath => path.extname(filepath);
 
-  const objBefore = parse(getContent(filePathBefore));
-  const objAfter = parse(getContent(filePathAfter));
+export default (filePathBefore, filePathAfter) => {
+  const objBefore = parse(getContent(filePathBefore), getExtension(filePathBefore));
+  const objAfter = parse(getContent(filePathAfter), getExtension(filePathAfter));
 
   const allKeys = union(Object.keys(objBefore), Object.keys(objAfter));
 
