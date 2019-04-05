@@ -1,4 +1,4 @@
-### project-lvl2-s451
+### Difference-generator
 a console study project generating difference between config files
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/35043c9ecb78143593e9/maintainability)](https://codeclimate.com/github/mpokrovsky/project-lvl2-s451/maintainability)
