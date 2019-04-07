@@ -8,9 +8,9 @@ test.each([
   ['before.json', 'after.json', 'expected.txt'],
   ['before.yml', 'after.yml', 'expected.txt'],
   ['before.ini', 'after.ini', 'expected.txt'],
-  ['beforeTree.json', 'afterTree.json', 'expectedTree.txt'],
-  ['beforeTree.yml', 'afterTree.yml', 'expectedTree.txt'],
-  ['beforeTree.ini', 'afterTree.ini', 'expectedTree.txt'],
+  // ['beforeTree.json', 'afterTree.json', 'expectedTree.txt'],
+  // ['beforeTree.yml', 'afterTree.yml', 'expectedTree.txt'],
+  // ['beforeTree.ini', 'afterTree.ini', 'expectedTree.txt'],
 ])('add(%s, %s)',
   (a, b, c) => {
     const beforePath = getPath(a);
