@@ -1,6 +1,6 @@
 ### Difference-generator
 
-    a cli study project generating difference between config files. Supported formats: JSON, YAML, INI
+a cli study project generating difference between config files. Supported formats: JSON, YAML, INI
 ---
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/422c2a6b90413fbb3466/maintainability)](https://codeclimate.com/github/mpokrovsky/Difference-Generator/maintainability)
