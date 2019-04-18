@@ -1,5 +1,5 @@
-### Difference-generator
----
+# Difference-generator
+
 a cli study project generating difference between config files. Supported formats: JSON, YAML, INI
 
 
